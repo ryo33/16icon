@@ -18,9 +18,11 @@ const App = () => (
     <a href="https://github.com/ryo33/16icon">github.com/ryo33/16icon</a>
     <div>
       <RefreshButton />
-      <SaveButton targetId="icon" />
     </div>
     <Matrix id="icon" width="256px" height="256px" />
+    <div>
+      <SaveButton targetId="icon" />
+    </div>
     <Sliders />
     <ColorPicker />
   </div>

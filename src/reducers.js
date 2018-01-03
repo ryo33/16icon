@@ -1,9 +1,9 @@
 import bm from 'box-muller'
 
-const initialBase = {h: 0, s: 1.0, l: 0.5}
+const initialBase = {h: 1, s: 0.9, l: 0.45}
 const initialHeight = 4
 const initialWidth = 4
-const initialStandardDeviations = {h: 20, s: 0.2, l: 0.15}
+const initialStandardDeviations = {h: 8, s: 0.15, l: 0.15}
 
 const limit = (value, min, max) => Math.min(Math.max(value, min), max)
 const nd = (mean, sd) => sd * bm() + mean
