@@ -5,7 +5,7 @@ const mapStateToProps = ({matrix}, props) => {
   return {matrix, ...props}
 }
 
-const Matrix = ({ matrix, width='200px', height='200px' }) => {
+const Matrix = ({ id, matrix, width='200px', height='200px' }) => {
   const svgMatrix = matrix.reduce((acc, line, y) => {
     acc.push(line.map(({ h, s, l }, x) => (
       <rect
@@ -19,7 +19,7 @@ const Matrix = ({ matrix, width='200px', height='200px' }) => {
     return acc
   }, [])
   const viewBox = `0 0 ${matrix[0].length} ${matrix.length}`
-  return <svg style={{width, height}} viewBox={viewBox}>
+  return <svg id={id} style={{width, height}} viewBox={viewBox}>
     {svgMatrix}
   </svg>
 }

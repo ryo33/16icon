@@ -4,6 +4,7 @@ import Store from 'repatch'
 import { Provider } from 'react-redux'
 
 import RefreshButton from '../components/RefreshButton'
+import SaveButton from '../components/SaveButton'
 import Matrix from '../components/Matrix'
 import ColorPicker from '../components/ColorPicker'
 import Sliders from '../components/Sliders'
@@ -17,8 +18,9 @@ const App = () => (
     <a href="https://github.com/ryo33/16icon">github.com/ryo33/16icon</a>
     <div>
       <RefreshButton />
+      <SaveButton targetId="icon" />
     </div>
-    <Matrix />
+    <Matrix id="icon" width="256px" height="256px" />
     <Sliders />
     <ColorPicker />
   </div>
