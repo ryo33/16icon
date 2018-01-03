@@ -8,7 +8,7 @@ const mapDispatchToProps = {
 }
 
 class RefreshButton extends Component {
-  handleClick = () => {
+  handleClick() {
     const { refresh } = this.props
     refresh()
   }

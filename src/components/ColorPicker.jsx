@@ -12,7 +12,7 @@ const mapDispatchToProps = {
 }
 
 class ColorPicker extends Component {
-  handleChange = ({hsl}) => {
+  handleChange({hsl}) {
     const { changeColor } = this.props
     changeColor(hsl)
   }

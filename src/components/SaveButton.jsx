@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { saveSvgAsPng } from 'save-svg-as-png'
 
 class SaveButton extends Component {
-  handleClick = () => {
+  handleClick() {
     const { targetId } = this.props
     console.log(targetId)
     console.log(document.getElementById(targetId))

@@ -1,10 +1,5 @@
 import bm from 'box-muller'
 
-const initialBase = {h: 1, s: 0.9, l: 0.45}
-const initialHeight = 4
-const initialWidth = 4
-const initialStandardDeviations = {h: 8, s: 0.15, l: 0.15}
-
 const limit = (value, min, max) => Math.min(Math.max(value, min), max)
 const nd = (mean, sd) => sd * bm() + mean
 const applyNormalDistribution = ({ h, s, l }, { h: hsd, s: ssd, l: lsd }) => {
@@ -14,16 +9,18 @@ const applyNormalDistribution = ({ h, s, l }, { h: hsd, s: ssd, l: lsd }) => {
     l: limit(nd(l, lsd), 0, 1)
   }
 }
-const createMatrix = ({ base, height, width, standardDeviations }) =>
-  Array(initialHeight).fill().map(() =>
-    Array(initialWidth).fill().map(() =>
-      applyNormalDistribution(base, standardDeviations)))
+const createMatrix = ({ base, length, height, width, standardDeviations }) =>
+  Array(length).fill().map(() =>
+    Array(height).fill().map(() =>
+      Array(width).fill().map(() =>
+        applyNormalDistribution(base, standardDeviations))))
 
 const initialState = {
-  base: initialBase,
-  height: initialHeight,
-  width: initialWidth,
-  standardDeviations: initialStandardDeviations,
+  base: {h: -14.25, s: 0.52, l: 0.28},
+  standardDeviations: {h: 39.83, s: 0.31, l: 0.13},
+  length: 1,
+  height: 4,
+  width: 4,
   matrix: []
 }
 initialState.matrix = createMatrix(initialState)
@@ -39,6 +36,18 @@ const updateStandardDeviation = (name, value) => (state) => {
 
 const changeColor = (hsl) => (state) => {
   return {...state, base: hsl}
+}
+
+export const updateLength = (length) => (state) => {
+  return refresh()({...state, length})
+}
+
+export const updateWidth = (width) => (state) => {
+  return refresh()({...state, width})
+}
+
+export const updateHeight = (height) => (state) => {
+  return refresh()({...state, height})
 }
 
 export {
