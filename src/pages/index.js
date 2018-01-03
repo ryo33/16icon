@@ -16,12 +16,12 @@ const store = new Store(initialState)
 const App = () => (
   <div>
     <a href="https://github.com/ryo33/16icon">github.com/ryo33/16icon</a>
-    <NumericInputs />
-    <Sliders />
-    <div>
+    <div style={{width: '300px'}}>
+      <NumericInputs />
+      <Sliders />
       <RefreshButton />
     </div>
-    <Icons width="128" height="128" />
+    <Icons width="128px" height="128px" />
     <ColorPicker />
   </div>
 )
