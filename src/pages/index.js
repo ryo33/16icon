@@ -14,6 +14,7 @@ const store = new Store(initialState)
 // TODO Use `<></>` instead of `<div></div>`.
 const App = () => (
   <div>
+    <a href="https://github.com/ryo33/16icon">github.com/ryo33/16icon</a>
     <div>
       <RefreshButton />
     </div>
