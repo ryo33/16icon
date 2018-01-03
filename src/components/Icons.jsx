@@ -21,14 +21,16 @@ const Icon = ({ id, matrix, onClick, width='200px', height='200px' }) => {
     return acc
   }, [])
   const viewBox = `0 0 ${matrix[0].length} ${matrix.length}`
+  const iconStyle = {
+    width, height, padding: '2px'
+  }
   return (
-    <span>
-      <a onClick={onClick}>
-        <svg id={id} style={{width, height}}
-          viewBox={viewBox} width={width} height={height}>
-          {svgMatrix}
-        </svg>
-      </a>
+    <span style={iconStyle}>
+      <svg id={id}
+        onClick={onClick}
+        viewBox={viewBox} width={width} height={height}>
+        {svgMatrix}
+      </svg>
     </span>
   )
 }
