@@ -20,8 +20,8 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="16icon"
       meta={[
-        { name: 'description', content: 'Create Tile Colored Icons' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'The art of icons.' },
+        { name: 'keywords', content: 'icon, art' },
       ]}
     />
     <Header />
