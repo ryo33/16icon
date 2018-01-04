@@ -4,15 +4,18 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "base64-url": "^2.0.1",
     "box-muller": "0.0.1",
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "is-browser": "^2.0.1",
     "rc-slider": "^8.5.0",
     "react-color": "^2.13.8",
     "react-modal": "^3.1.10",
     "react-numeric-input": "^2.2.0",
     "react-redux": "^5.0.6",
+    "redux-query-sync": "^0.1.7",
     "repatch": "^1.3.12",
     "save-svg-as-png": "^1.2.0"
   },
