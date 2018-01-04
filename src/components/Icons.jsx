@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { svgAsPngUri } from 'save-svg-as-png'
 import Modal from 'react-modal'
 
-const mapStateToProps = ({matrix}, props) => {
-  return {matrix, ...props}
+const mapStateToProps = ({matrix, width, height}, props) => {
+  return {matrix, width, height, ...props}
 }
 
-const Icon = ({ id, matrix, onClick, width='200px', height='200px' }) => {
+const Icon = ({ id, matrix, width, height, onClick, sizeBase=16 }) => {
   const svgMatrix = matrix.reduce((acc, line, y) => {
     acc.push(line.map(({ h, s, l }, x) => (
       <rect
@@ -20,15 +20,17 @@ const Icon = ({ id, matrix, onClick, width='200px', height='200px' }) => {
     )))
     return acc
   }, [])
-  const viewBox = `0 0 ${matrix[0].length} ${matrix.length}`
+  const viewBox = `0 0 ${width} ${height}`
   const iconStyle = {
-    width, height, padding: '2px', margin: '1px'
+    width: `${width*sizeBase}px`,
+    height: `${height*sizeBase}px`,
+    padding: '2px', margin: '1px'
   }
   return (
     <span style={iconStyle}>
       <svg id={id}
         onClick={onClick}
-        viewBox={viewBox} width={width} height={height}>
+        viewBox={viewBox} width={width*sizeBase} height={height*sizeBase}>
         {svgMatrix}
       </svg>
     </span>
@@ -43,8 +45,9 @@ class Icons extends Component {
     }
   }
   handleClick(id) {
+    const { pngSizeBase } = this.props
     const opts = {
-      scale: 32
+      scale: pngSizeBase
     }
     svgAsPngUri(document.getElementById(id), opts, uri => {
       this.setState({imageUri: uri})
@@ -54,21 +57,21 @@ class Icons extends Component {
     this.setState({imageUri: null})
   }
   render() {
-    const { matrix, ...props } = this.props
+    const { matrix, width, height,
+      previewSizeBase, pngSizeBase, ...props } = this.props
     const { imageUri } = this.state
     const modalStyle = {
       content: {
         position: 'fixed',
-        top: '40px',
-        left: '40px',
-        width: '256px',
-        height: '256px',
+        width: `${width*pngSizeBase}px`,
+        height: `${height*pngSizeBase}px`,
+        margin: 'auto',
         borderRadius: '0px',
         padding: '0px'
       }
     }
     const imgStyle = {
-      border: '3px solid #333',
+      border: '2px solid #222',
       width: '100%',
       height: '100%'
     }
@@ -91,7 +94,11 @@ class Icons extends Component {
           return (
             <Icon key={i} id={id}
               onClick={() => this.handleClick(id)}
-              matrix={matrix} {...props} />
+              matrix={matrix}
+              width={width}
+              height={height}
+              sizeBase={previewSizeBase}
+              {...props} />
           )
         })}
       </div>

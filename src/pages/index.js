@@ -21,7 +21,7 @@ const App = () => (
       <Sliders />
       <RefreshButton />
     </div>
-    <Icons width="128px" height="128px" />
+    <Icons previewSizeBase={32} pngSizeBase={64} />
     <ColorPicker />
   </div>
 )
