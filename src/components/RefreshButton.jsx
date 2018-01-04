@@ -14,7 +14,7 @@ class RefreshButton extends Component {
   }
   render() {
     const buttonStyle = {
-      width: '80px',
+      width: '200px',
       height: '40px',
       margin: '5px 0px'
     }
