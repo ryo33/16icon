@@ -13,7 +13,12 @@ class RefreshButton extends Component {
     refresh()
   }
   render() {
-    return <button onClick={::this.handleClick}>Refresh</button>
+    const buttonStyle = {
+      width: '80px',
+      height: '40px',
+      margin: '5px 0px'
+    }
+    return <button onClick={::this.handleClick} style={buttonStyle}>Refresh</button>
   }
 }
 

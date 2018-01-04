@@ -22,7 +22,7 @@ const Icon = ({ id, matrix, onClick, width='200px', height='200px' }) => {
   }, [])
   const viewBox = `0 0 ${matrix[0].length} ${matrix.length}`
   const iconStyle = {
-    width, height, padding: '2px'
+    width, height, padding: '2px', margin: '1px'
   }
   return (
     <span style={iconStyle}>
