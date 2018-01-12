@@ -19,8 +19,7 @@ import {
   updateWidth,
   updateHeight,
   changeColor,
-  updateStandardDeviation,
-  updateImageUrl
+  updateStandardDeviation
 } from '../reducers'
 
 const store = new Store(initialState)
@@ -76,12 +75,6 @@ if (isBrowser) {
         selector: state => state.standardDeviations.l,
         action: value => updateStandardDeviation('l', value),
         defaultValue: defaultState.standardDeviations.l,
-        stringToValue, valueToString
-      },
-      imageUrl: {
-        selector: state => state.imageUrl,
-        action: updateImageUrl,
-        defaultValue: defaultState.imageUrl,
         stringToValue, valueToString
       },
     },

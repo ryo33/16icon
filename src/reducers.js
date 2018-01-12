@@ -25,7 +25,7 @@ const initialState = {
   imageUrl: null,
   base: initialBase,
   baseMatrix: [],
-  standardDeviations: {h: 39.83, s: 0.31, l: 0.13},
+  standardDeviations: {h: 20, s: 0.3, l: 0.1},
   length: 1,
   height: 4,
   width: 4,
