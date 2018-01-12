@@ -16,8 +16,11 @@ class ImageInput extends Component {
     if (event.target.files.length == 0) return
     const file = event.target.files[0]
     const { width, height, updateImageUrl } = this.props
-    const imageUrl = URL.createObjectURL(file)
-    updateImageUrl(imageUrl)
+    const reader = new FileReader()
+    reader.addEventListener('load', () => {
+      updateImageUrl(reader.result)
+    })
+    reader.readAsDataURL(file)
   }
 
   render() {
