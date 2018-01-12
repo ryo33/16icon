@@ -6,9 +6,11 @@
   "dependencies": {
     "base64-url": "^2.0.1",
     "box-muller": "0.0.1",
+    "color-convert": "^1.9.1",
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "image-promise": "^5.0.1",
     "is-browser": "^2.0.1",
     "rc-slider": "^8.5.0",
     "react-color": "^2.13.8",

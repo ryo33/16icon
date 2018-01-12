@@ -32,15 +32,18 @@ class Numeric extends Component {
 class NumericInputs extends Component {
   handleChangeLength(value) {
     const { updateLength } = this.props
-    updateLength(value)
+    if (value > 0)
+      updateLength(value)
   }
   handleChangeWidth(value) {
     const { updateWidth } = this.props
-    updateWidth(value)
+    if (value > 0)
+      updateWidth(value)
   }
   handleChangeHeight(value) {
     const { updateHeight } = this.props
-    updateHeight(value)
+    if (value > 0)
+      updateHeight(value)
   }
   render() {
     const { length, width, height } = this.props

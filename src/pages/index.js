@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
-import Store from 'repatch'
+import Store, { thunk } from 'repatch'
 import { Provider } from 'react-redux'
 import ReduxQuerySync from 'redux-query-sync'
 import isBrowser from 'is-browser'
 import base64url from 'base64-url'
 
+import ImageInput from '../components/ImageInput'
 import RefreshButton from '../components/RefreshButton'
 import NumericInputs from '../components/NumericInputs'
 import Icons from '../components/Icons'
@@ -22,6 +23,7 @@ import {
 } from '../reducers'
 
 const store = new Store(initialState)
+store.addMiddleware(thunk)
 const defaultState = store.getState()
 if (isBrowser) {
   const stringToValue = string => {
@@ -88,6 +90,7 @@ const App = () => (
     <div style={{width: '300px'}}>
       <NumericInputs />
       <Sliders />
+      <ImageInput />
       <RefreshButton />
     </div>
     <Icons previewSizeBase={32} pngSizeBase={64} />
